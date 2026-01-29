@@ -1,0 +1,24 @@
+{
+  "name": "research-paper-tracker",
+  "version": "1.0.0",
+  "description": "A full-stack web application to help researchers efficiently manage, track, and analyze their academic reading progress",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "client": "cd client && npm start",
+    "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["research", "papers", "tracker", "academic", "reading"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.1.5"
+  }
+}
