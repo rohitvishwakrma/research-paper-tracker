@@ -1,4 +1,4 @@
-const RESEARCH_DOMAINS = [
+export const RESEARCH_DOMAINS = [
   'Computer Science',
   'Data Science',
   'Artificial Intelligence',
@@ -14,7 +14,7 @@ const RESEARCH_DOMAINS = [
   'Other'
 ];
 
-const READING_STAGES = [
+export const READING_STAGES = [
   'To Read',
   'Currently Reading',
   'Partially Read',
@@ -22,23 +22,17 @@ const READING_STAGES = [
   'Reviewed'
 ];
 
-const IMPACT_SCORES = [
+export const IMPACT_SCORES = [
   'High Impact',
   'Medium Impact',
   'Low Impact',
   'Unknown'
 ];
 
-const DATE_FILTERS = {
+export const DATE_FILTERS = {
   THIS_WEEK: 'thisWeek',
   THIS_MONTH: 'thisMonth',
   LAST_3_MONTHS: 'last3Months',
   ALL_TIME: 'allTime',
 };
 
-module.exports = {
-  RESEARCH_DOMAINS,
-  READING_STAGES,
-  IMPACT_SCORES,
-  DATE_FILTERS,
-};

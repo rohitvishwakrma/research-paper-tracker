@@ -103,19 +103,8 @@ research-paper-tracker/
     dateAdded: Date
   }
 ## Frontend ↔ Backend Mapping
-   1. Frontend → Backend API Mapping
-   _________________________________________________________________________
-  | Frontend Hook / Component | Backend Endpoint                            |
-  | ------------------------  | ------------------------------------------- |
-  | `usePapers.js`            | `GET /api/papers`                           |
-  | `PaperForm.jsx`           | `POST /api/papers`                          |
-  | `FilterSection.jsx`       | Query params → `/api/papers?domain=&stage=` |
-  | `useAnalytics.js`         | `GET /api/analytics`                        |
-  | `FunnelChart.jsx`         | `analytics.funnel`                          |
-  | `ScatterChart.jsx`        | `analytics.scatter`                         |
-  | `StackedBarChart.jsx`     | `analytics.stacked`                         |
-  | `SummaryCards.jsx`        | `analytics.summary`                         |
-  | `DomainCitations.jsx`     | `analytics.avgCitations`                    |
+     rmdir /s /q dist
+  npm run build                 |
   |___________________________|_____________________________________________|
   ## Paper Management
   - POST /api/papers - Add new paper

@@ -38,7 +38,10 @@ const Profile = () => {
     setMessage('Password change functionality is not implemented yet.');
   };
 
-  if (!user) return null;
+  if (!user || !user.email) {
+    localStorage.removeItem('user');
+    return null;
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#0a1026] via-[#181e3a] to-[#1a1440]">

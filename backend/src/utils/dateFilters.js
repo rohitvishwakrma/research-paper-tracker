@@ -1,4 +1,4 @@
-const getDateRange = (filterType) => {
+export const getDateRange = (filterType) => {
   const now = new Date();
   let startDate;
 
@@ -29,7 +29,7 @@ const getDateRange = (filterType) => {
   return startDate;
 };
 
-const buildDateFilter = (filterType) => {
+export const buildDateFilter = (filterType) => {
   const startDate = getDateRange(filterType);
   
   if (!startDate) return {};
@@ -39,7 +39,3 @@ const buildDateFilter = (filterType) => {
   };
 };
 
-module.exports = {
-  getDateRange,
-  buildDateFilter,
-};

@@ -8,7 +8,7 @@ import {
   FiTrendingUp,
   FiCalendar,
 } from 'react-icons/fi';
-import{ EditPaperModal} from './Common/EditPaperModal';
+import EditPaperModal from '../common/EditPaperModal';
 import { usePapers } from '../../context/PaperContext';
 import { formatDate, formatCitationCount } from '../../utils/data';
 import { IMPACT_COLORS, STAGE_COLORS } from '../../utils/constants';

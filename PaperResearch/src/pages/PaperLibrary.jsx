@@ -69,7 +69,7 @@ const PaperLibrary = () => {
 
       {/* Papers */}
       {filteredPapers.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-0 !pl-0 !pr-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-0 pl-0! pr-0!">
           {filteredPapers.map(paper => (
             <PaperCard key={paper.id} paper={paper} />
           ))}

@@ -1,4 +1,4 @@
-const analyticsService = require('../services/analytics.service');
+import analyticsService from '../services/analytics.service.js';
 
 const analyticsController = {
   // Get funnel analytics
@@ -108,4 +108,4 @@ const analyticsController = {
   },
 };
 
-module.exports = analyticsController;
+export default analyticsController;

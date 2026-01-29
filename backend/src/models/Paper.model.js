@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const paperSchema = new mongoose.Schema({
   title: {
@@ -85,5 +85,4 @@ paperSchema.index({ researchDomain: 1, readingStage: 1, impactScore: 1 });
 paperSchema.index({ dateAdded: -1 });
 
 const Paper = mongoose.model('Paper', paperSchema);
-
-module.exports = Paper;
+export default Paper;

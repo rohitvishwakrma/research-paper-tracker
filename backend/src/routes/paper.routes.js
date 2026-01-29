@@ -1,6 +1,7 @@
-const express = require('express');
+import express from 'express';
+import paperController from '../controllers/paper.controller.js';
+
 const router = express.Router();
-const paperController = require('../controllers/paper.controller');
 
 // Paper CRUD routes
 router.post('/', paperController.addPaper);
@@ -10,4 +11,4 @@ router.get('/:id', paperController.getPaper);
 router.put('/:id', paperController.updatePaper);
 router.delete('/:id', paperController.deletePaper);
 
-module.exports = router;
+export default router;

@@ -1,4 +1,4 @@
-const paperService = require('../services/paper.service');
+import paperService from '../services/paper.service.js';
 
 const paperController = {
   // Add a new paper
@@ -159,4 +159,4 @@ const paperController = {
   },
 };
 
-module.exports = paperController;
+export default paperController;

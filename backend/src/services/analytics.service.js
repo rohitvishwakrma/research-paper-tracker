@@ -1,5 +1,5 @@
-const Paper = require('../models/Paper.model');
-const { buildDateFilter } = require('../utils/dateFilters');
+import Paper from '../models/Paper.model.js';
+import { buildDateFilter } from '../utils/dateFilters.js';
 
 const analyticsService = {
   // Funnel Analytics: Papers by reading stage
@@ -181,4 +181,4 @@ const analyticsService = {
   },
 };
 
-module.exports = analyticsService;
+export default analyticsService;
