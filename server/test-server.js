@@ -20,10 +20,7 @@ async function startServer() {
     const uri = mongod.getUri();
     
     console.log('Connecting to MongoDB...');
-    await mongoose.connect(uri, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    });
+    await mongoose.connect(uri);
     
     console.log('MongoDB connected successfully');
 
