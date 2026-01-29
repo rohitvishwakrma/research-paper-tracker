@@ -3,6 +3,6 @@
   "outputDirectory": "dist",
   "devCommand": "vite",
   "rewrites": [
-    { "source": "/((?!.*\\..*).*)", "destination": "/index.html" }
+    { "source": "/((?!.*\\..*).*)", "destination": "/" }
   ]
 }
