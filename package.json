@@ -9,9 +9,16 @@
     "client": "cd client && npm start",
     "install-client": "cd client && npm install",
     "build-client": "cd client && npm run build",
+    "test-api": "node test-api.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["research", "papers", "tracker", "academic", "reading"],
+  "keywords": [
+    "research",
+    "papers",
+    "tracker",
+    "academic",
+    "reading"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +26,7 @@
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
+    "mongodb-memory-server": "^11.0.1",
     "mongoose": "^9.1.5"
   }
 }

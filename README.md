@@ -34,6 +34,24 @@ Before running this application, make sure you have the following installed:
 - **npm** or **yarn**
 - **MongoDB** (local installation or MongoDB Atlas account)
 
+### MongoDB Setup Options
+
+**Option 1: Local MongoDB**
+- Install MongoDB Community Edition from [mongodb.com](https://www.mongodb.com/try/download/community)
+- Start MongoDB: `mongod` or `sudo systemctl start mongod`
+
+**Option 2: MongoDB Atlas (Cloud)**
+- Create a free account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- Create a cluster and get your connection string
+- Update `.env` with your Atlas connection string
+
+**Option 3: Docker**
+```bash
+docker run -d -p 27017:27017 --name mongodb mongo:latest
+```
+
+> **Note:** The application requires a running MongoDB instance. Without it, the API server won't be able to store or retrieve papers. Make sure MongoDB is running before starting the server.
+
 ## 🚀 Installation & Setup
 
 ### 1. Clone the Repository
