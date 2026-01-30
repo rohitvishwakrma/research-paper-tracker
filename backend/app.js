@@ -13,6 +13,11 @@ import errorHandler from "./src/middlewares/error.middleware.js";
 
 const app = express();
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
+
 /* =======================
    GLOBAL MIDDLEWARE
 ======================= */
