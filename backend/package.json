@@ -6,7 +6,7 @@
   "types": "module",
   "scripts": {
     "dev": "nodemon server.js",
-    "build": "npm install && npm install --prefix PaperResearch && npm run build --prefix PaperResearch",
+    "build": "npm install",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

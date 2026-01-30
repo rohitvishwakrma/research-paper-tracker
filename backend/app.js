@@ -1,67 +1,71 @@
+import express from "express";
+import cors from "cors";
+import helmet from "helmet";
+import morgan from "morgan";
 
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import morgan from 'morgan';
-import path from 'path';
-import { fileURLToPath } from 'url';
+// Routes
+import paperRoutes from "./src/routes/paper.routes.js";
+import analyticsRoutes from "./src/routes/analytics.routes.js";
+import authRoutes from "./src/routes/auth.routes.js";
 
-// Import routes
-import paperRoutes from './src/routes/paper.routes.js';
-import analyticsRoutes from './src/routes/analytics.routes.js';
-import authRoutes from './src/routes/auth.routes.js';
-
-// Import middleware
-import errorHandler from './src/middlewares/error.middleware.js';
+// Middleware
+import errorHandler from "./src/middlewares/error.middleware.js";
 
 const app = express();
 
-// __dirname equivalent in ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+/* =======================
+   GLOBAL MIDDLEWARE
+======================= */
 
-// Middleware
+// Security headers
 app.use(
   helmet({
-    contentSecurityPolicy: {
-      useDefaults: true,
-      directives: {
-        "script-src": ["'self'", "'unsafe-inline'"],
-      },
-    },
+    contentSecurityPolicy: false, // avoid CSP issues in APIs
   })
-); // Security headers (CSP relaxed for inline scripts)
-app.use(cors()); // Enable CORS
-// app.use(morgan('dev')); // HTTP request logger (disabled to reduce console noise)
-app.use(express.json()); // Parse JSON bodies
-app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
+);
 
-// Health check endpoint
-app.get('/health', (req, res) => {
+// CORS (allow frontend)
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://your-frontend.vercel.app" // 🔴 CHANGE THIS
+    ],
+    credentials: true,
+  })
+);
+
+// Logging
+app.use(morgan("dev"));
+
+// Body parsers
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+/* =======================
+   HEALTH CHECK
+======================= */
+
+app.get("/health", (req, res) => {
   res.status(200).json({
     success: true,
-    message: 'Server is running',
+    message: "Backend is running",
     timestamp: new Date().toISOString(),
   });
 });
 
-// API Routes
-app.use('/api/papers', paperRoutes);
-app.use('/api/analytics', analyticsRoutes);
-app.use('/api/auth', authRoutes);
+/* =======================
+   API ROUTES
+======================= */
 
-// dir to frontend s backend or frontend  
+app.use("/api/papers", paperRoutes);
+app.use("/api/analytics", analyticsRoutes);
+app.use("/api/auth", authRoutes);
 
-// Serve frontend build from correct location
-app.use(express.static(path.join(__dirname, "../PaperResearch/dist")));
+/* =======================
+   404 HANDLER
+======================= */
 
-
-// Catch-all route for SPA: serve index.html for any unmatched route
-app.use((req, res, next) => {
-  res.sendFile(path.resolve(__dirname, "../PaperResearch/dist", "index.html"));
-});
-
-// 404 handler
 app.use((req, res) => {
   res.status(404).json({
     success: false,
@@ -69,7 +73,10 @@ app.use((req, res) => {
   });
 });
 
-// Error handler
+/* =======================
+   ERROR HANDLER
+======================= */
+
 app.use(errorHandler);
 
 export default app;
