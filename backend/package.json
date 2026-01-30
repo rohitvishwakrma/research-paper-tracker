@@ -5,9 +5,9 @@
   "main": "index.js",
   "types": "module",
   "scripts": {
-    "dev": "nodemon backend/server.js",
+    "dev": "nodemon server.js",
     "build": "npm install && npm install --prefix PaperResearch && npm run build --prefix PaperResearch",
-    "start": "node backend/server.js",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
