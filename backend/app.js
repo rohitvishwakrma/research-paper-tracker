@@ -48,6 +48,24 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 /* =======================
+   ROOT ROUTE
+======================= */
+
+app.get("/", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "PaperResearch API is running",
+    version: "1.0.0",
+    endpoints: {
+      health: "/health",
+      papers: "/api/papers",
+      analytics: "/api/analytics",
+      auth: "/api/auth"
+    }
+  });
+});
+
+/* =======================
    HEALTH CHECK
 ======================= */
 
